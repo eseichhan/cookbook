@@ -56,14 +56,12 @@
                 <div class="active-bot" id="input-container">
                     <h2 style="font-family: 'Abril Fatface', serif;">Make Your Own</h2>
                     <div class="chat-interface">
-                        <div id="chat-container"></div>
-                        <textarea id="user-input" placeholder="Enter your recipe idea here..."></textarea>
-                        <button style="font-family: 'Abril Fatface', serif;" class="submit-btn" onclick="sendMessage()">Enter</button>
+                        <div id="chat-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                        <div class="input-area">
+                            <textarea id="user-input" placeholder="Enter your recipe idea here..."></textarea>
+                            <button style="font-family: 'Abril Fatface', serif;" class="submit-btn" onclick="sendMessage()">Enter</button>
+                        </div>
                     </div>
-                    <!-- <button style="font-family: 'Abril Fatface', serif;" class="generate-btn">Generate Image</button> -->
-                    <!-- <div class="generated-image">
-                        <img src="placeholder.jpg" alt="Generated Image" id="outputImage">
-                    </div> -->
                 </div>
             </div>
         </div>
