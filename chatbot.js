@@ -216,3 +216,23 @@ function addLoadingIndicator() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
     return loadingDiv;
 }
+function addMessageToChat(message, type) {
+    const messageDiv = document.createElement('div');
+
+    // Assign appropriate class
+    if (type === 'user') {
+        messageDiv.classList.add('chat-bubble', 'receiver'); // User's message
+    } else if (type === 'bot') {
+        messageDiv.classList.add('chat-bubble', 'sender'); // Bot's message
+    }
+
+    // Add message content
+    messageDiv.innerHTML = `<p>${message}</p>`;
+    
+    // Append to chat container
+    const chatContainer = document.getElementById('chat-container');
+    chatContainer.appendChild(messageDiv);
+
+    // Auto-scroll to the latest message
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
