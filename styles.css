@@ -26,6 +26,10 @@ body, html {
     margin: 0;
 }
 
+.user-recipe {
+    display: none;
+}
+
 .content {
     display: flex;
     justify-content: space-between;

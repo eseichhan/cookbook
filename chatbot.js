@@ -172,6 +172,7 @@ async function processAndDisplayResponse(content) {
         addMessageToChat(content, 'bot');
     }
 }
+let userRecipe = {}
 
 function createRecipe(content) {
     // split the content into an array of lines
@@ -185,9 +186,46 @@ function createRecipe(content) {
     }
     console.log(lines);
     let recipe = JSON.parse(lines[pos]);
+    userRecipe = recipe;
     console.log(recipe);
     let intro = lines[0].split(/[.!?]/g)
     addMessageToChat(intro[0] + '! ' + intro[1] + '.', 'bot');
+
+    const recipeDiv = document.getElementById('user-container');
+    recipeDiv.style.display = 'flex';
+
+    // Store the recipe in local storage
+    localStorage.setItem('userRecipe', JSON.stringify(recipe));
+    
+    // recipeDiv.innerHTML = `
+    //     <h2>${recipe.dish_name}</h2>
+    //     <p>${recipe.description}</p>
+    //     <h3>Molecular Breakdown</h3>
+    //     <ul>
+    //         <li>Total Nitrogen: ${recipe.molecular_breakdown.total_nitrogen}</li>
+    //         <li>Total Carbon: ${recipe.molecular_breakdown.total_carbon}</li>
+    //         <li>Total Oxygen: ${recipe.molecular_breakdown.total_oxygen}</li>
+    //         <li>Total Phosphorus: ${recipe.molecular_breakdown.total_phosphorus}</li>
+    //     </ul>
+    //     <h3>Nutritional Info</h3>
+    //     <ul>
+    //         <li>Proteins: ${recipe.nutritional_info.proteins}</li>
+    //         <li>Carbohydrates: ${recipe.nutritional_info.carbohydrates}</li>
+    //         <li>Fats: ${recipe.nutritional_info.fats}</li>
+    //         <li>Calories: ${recipe.nutritional_info.calories}</li>
+    //     </ul>
+    //     <h3>Printer Settings</h3>
+    //     <ul>
+    //         <li>Temperature: ${recipe.printer_settings.temperature}</li>
+    //         <li>Print Speed: ${recipe.printer_settings.print_speed}</li>
+    //         <li>Layer Thickness: ${recipe.printer_settings.layer_thickness}</li>
+    //     </ul>
+    //     <h3>Usage Instructions</h3>
+    //     <ul>
+    //         ${recipe.usage_instructions.loading_steps.map(step => `<li>${step}</li>`).join('')}
+    //     </ul>
+    //     <p>${recipe.usage_instructions.safety_notes}</p>
+    // `;
 }
 
 // helper function to add message to chat based on the agent 'type'
