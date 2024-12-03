@@ -20,25 +20,76 @@
             </div>
 
             <!-- Recipe Details -->
-            <div class="recipe-details">
-                <h2 style="font-family: 'Abril Fatface', serif;">Instructions for printing Mochi</h2>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 1: Prepare the Ingredients</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Combine glutinous rice flour, sweetener, water, and flavor/color additives in a bowl.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Mix until the consistency is smooth and stretchy. Ensure there are no lumps.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 2: Load the Printer</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Load the dough into the printer’s main extrusion cartridge.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	If using fillings, load them into a secondary cartridge for precise filling deposition.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 3: Select the Design</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Choose or design a mochi model (e.g., round, dome-shaped mochi with a hollow center for filling).</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 4: Print the Mochi</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Start by printing the outer mochi shell layer.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	If filled, pause the printer mid-layer to inject filling before continuing the top layer.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 5: Steam Post-Printing (Optional)</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Steam the printed mochi for 5–10 minutes to enhance texture and elasticity.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 6: Cool and Serve</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Allow the mochi to cool to room temperature before serving or refrigerating.</strong></h3>
+            <div class="recipe-details" id="recipe-details">
+               
             </div>
         </div>
     </div>
+    <script>
+        const recipe = {
+    "dish_name": "Soft Mochi",
+    "description": "A chewy and delicate Japanese rice cake, made from glutinous rice flour and lightly sweetened for a perfect dessert or snack.",
+    "cuisine_type": "Japanese",
+    "molecular_breakdown": {
+        "total_nitrogen": "2g",
+        "total_carbon": "55g",
+        "total_oxygen": "30g",
+        "total_phosphorus": "0.8g"
+    },
+    "nutritional_info": {
+        "proteins": "3g",
+        "carbohydrates": "50g",
+        "fats": "1g",
+        "calories": "240"
+    },
+    "printer_settings": {
+        "temperature": "180°C",
+        "print_speed": "12 mm/sec",
+        "layer_thickness": "0.6 mm"
+    },
+    "usage_instructions": {
+        "loading_steps": [
+            "Step 1: Load the nitrogen cartridge.",
+            "Step 2: Load the carbon cartridge.",
+            "Step 3: Load the oxygen and phosphorus cartridges to the respective slots."
+        ],
+        "safety_notes": "Handle the printed mochi with care to avoid deformation. Let it cool slightly before serving."
+    }
+}
+
+
+        if (recipe) {
+            const recipeDetailsDiv = document.getElementById('recipe-details');
+            recipeDetailsDiv.innerHTML = `
+                <h2 style="font-family: 'Abril Fatface', serif;">${recipe.dish_name}</h2>
+                <p style="font-family: 'Abril Fatface', serif;">${recipe.description}</p>
+                <h3 style="font-family: 'Abril Fatface', serif;">Molecular Breakdown</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Total Nitrogen: ${recipe.molecular_breakdown.total_nitrogen}</li>
+                    <li>Total Carbon: ${recipe.molecular_breakdown.total_carbon}</li>
+                    <li>Total Oxygen: ${recipe.molecular_breakdown.total_oxygen}</li>
+                    <li>Total Phosphorus: ${recipe.molecular_breakdown.total_phosphorus}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Nutritional Info</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Proteins: ${recipe.nutritional_info.proteins}</li>
+                    <li>Carbohydrates: ${recipe.nutritional_info.carbohydrates}</li>
+                    <li>Fats: ${recipe.nutritional_info.fats}</li>
+                    <li>Calories: ${recipe.nutritional_info.calories}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Printer Settings</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Temperature: ${recipe.printer_settings.temperature}</li>
+                    <li>Print Speed: ${recipe.printer_settings.print_speed}</li>
+                    <li>Layer Thickness: ${recipe.printer_settings.layer_thickness}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Usage Instructions</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    ${recipe.usage_instructions.loading_steps.map(step => `<li>${step}</li>`).join('')}
+                </ul>
+                <p style="font-family: 'Abril Fatface', serif;">${recipe.usage_instructions.safety_notes}</p>
+            `;
+        }
+    </script>
 </body>
 </html>

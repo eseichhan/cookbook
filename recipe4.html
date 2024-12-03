@@ -20,26 +20,76 @@
             </div>
 
             <!-- Recipe Details -->
-            <div class="recipe-details">
-                <h2 style="font-family: 'Abril Fatface', serif;">Instructions for making Modern Curry</h2>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 1: Prepare the Ingredients:</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Mix the curry base (coconut milk, broth, tomato puree, and spices) into a smooth consistency.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Dice vegetables and proteins into small, uniform pieces for extrusion.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 2: Load the Printer:</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Load the curry base into the primary extrusion cartridge.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Load diced vegetables and protein into secondary cartridges.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 3: Select the Design:</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Choose a structured curry model with layers of curry base, vegetables, and protein.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 4: Print the Curry:</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Start with a thick layer of curry base as the foundation.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Add alternating layers of vegetables, protein, and spices.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Finish with a drizzle of curry base on top for garnish.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 5: Cook Post-Printing (Optional):</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Simmer the printed curry briefly (5–10 minutes) to blend flavors and soften vegetables.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 6: Serve:</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Serve the curry over steamed rice, quinoa, or with whole-grain naan for a complete meal.</strong></h3>
+            <div class="recipe-details" id="recipe-details">
+               
             </div>
         </div>
     </div>
+    <script>
+        const recipe = {
+    "dish_name": "Spiced Curry",
+    "description": "A flavorful and aromatic dish featuring a blend of spices, a rich sauce, and tender vegetables or proteins, perfect with rice or bread.",
+    "cuisine_type": "Indian",
+    "molecular_breakdown": {
+        "total_nitrogen": "5g",
+        "total_carbon": "45g",
+        "total_oxygen": "35g",
+        "total_phosphorus": "1.2g"
+    },
+    "nutritional_info": {
+        "proteins": "10g",
+        "carbohydrates": "30g",
+        "fats": "15g",
+        "calories": "320"
+    },
+    "printer_settings": {
+        "temperature": "190°C",
+        "print_speed": "18 mm/sec",
+        "layer_thickness": "0.8 mm"
+    },
+    "usage_instructions": {
+        "loading_steps": [
+            "Step 1: Load the nitrogen cartridge.",
+            "Step 2: Load the carbon cartridge.",
+            "Step 3: Load the oxygen and phosphorus cartridges to the respective slots."
+        ],
+        "safety_notes": "Ensure the consistency is smooth before printing. Allow the curry to cool slightly before serving and stir gently if needed."
+    }
+}
+
+
+        if (recipe) {
+            const recipeDetailsDiv = document.getElementById('recipe-details');
+            recipeDetailsDiv.innerHTML = `
+                <h2 style="font-family: 'Abril Fatface', serif;">${recipe.dish_name}</h2>
+                <p style="font-family: 'Abril Fatface', serif;">${recipe.description}</p>
+                <h3 style="font-family: 'Abril Fatface', serif;">Molecular Breakdown</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Total Nitrogen: ${recipe.molecular_breakdown.total_nitrogen}</li>
+                    <li>Total Carbon: ${recipe.molecular_breakdown.total_carbon}</li>
+                    <li>Total Oxygen: ${recipe.molecular_breakdown.total_oxygen}</li>
+                    <li>Total Phosphorus: ${recipe.molecular_breakdown.total_phosphorus}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Nutritional Info</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Proteins: ${recipe.nutritional_info.proteins}</li>
+                    <li>Carbohydrates: ${recipe.nutritional_info.carbohydrates}</li>
+                    <li>Fats: ${recipe.nutritional_info.fats}</li>
+                    <li>Calories: ${recipe.nutritional_info.calories}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Printer Settings</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Temperature: ${recipe.printer_settings.temperature}</li>
+                    <li>Print Speed: ${recipe.printer_settings.print_speed}</li>
+                    <li>Layer Thickness: ${recipe.printer_settings.layer_thickness}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Usage Instructions</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    ${recipe.usage_instructions.loading_steps.map(step => `<li>${step}</li>`).join('')}
+                </ul>
+                <p style="font-family: 'Abril Fatface', serif;">${recipe.usage_instructions.safety_notes}</p>
+            `;
+        }
+    </script>
 </body>
 </html>

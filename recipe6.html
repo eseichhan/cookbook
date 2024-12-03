@@ -20,32 +20,76 @@
             </div>
 
             <!-- Recipe Details -->
-            <div class="recipe-details">
-                <h2 style="font-family: 'Abril Fatface', serif;">Instructions for the Dairy-Free Butter</h2>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 1: Ingredient Loading</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>The printer would have cartridges or compartments for each type of ingredient:</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Fats: Separate cartridges for coconut oil, olive/avocado oil, and flaxseed oil.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Water: A cartridge for liquid storage.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Powders: Compartments for lecithin, hydrocolloids (agar, xanthan), flavor molecules (diacetyl, lactic acid), and beta-carotene.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 2: Mixing Mechanism</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>The printer’s internal mixing unit would:</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Heat and melt solid fats like coconut oil.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Combine fats, water, and emulsifiers to create a stable emulsion.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Add hydrocolloids and stabilize the mixture for proper texture.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>•	Incorporate flavor and color molecules for a realistic buttery result.</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 3: Layer-by-Layer Printing</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>Using its extrusion head, the printer would:</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Precisely deposit the butter mixture in layers.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Use cooling mechanisms to allow the butter to solidify during the printing process.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Create intricate designs or standard shapes (e.g., sticks, swirls, or patterns).</strong></h3>
-                <p style="font-family: 'Abril Fatface', serif;"><strong>Step 4: Quality Control and Adjustments</strong> </p>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>The printer would have sensors to:</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Monitor viscosity, ensuring the mixture is suitable for extrusion.</strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Adjust the temperature for fats and emulsions to maintain consistency.
-                </strong></h3>
-                <h3 style="font-family: 'Abril Fatface', serif;"><strong>• Ensure even deposition and prevent air bubbles.</strong></h3>
+            <div class="recipe-details" id="recipe-details">
+                
             </div>
         </div>
     </div>
+    <script>
+        const recipe = {
+    "dish_name": "Creamy Butter",
+    "description": "Rich and smooth butter with a creamy texture, perfect for spreading, cooking, or baking.",
+    "cuisine_type": "Universal",
+    "molecular_breakdown": {
+        "total_nitrogen": "1g",
+        "total_carbon": "70g",
+        "total_oxygen": "25g",
+        "total_phosphorus": "0.5g"
+    },
+    "nutritional_info": {
+        "proteins": "1g",
+        "carbohydrates": "0g",
+        "fats": "81g",
+        "calories": "720"
+    },
+    "printer_settings": {
+        "temperature": "190°C",
+        "print_speed": "15 mm/sec",
+        "layer_thickness": "0.5 mm"
+    },
+    "usage_instructions": {
+        "loading_steps": [
+            "Step 1: Load the nitrogen cartridge.",
+            "Step 2: Load the carbon cartridge.",
+            "Step 3: Load the oxygen and phosphorus cartridges to the respective slots."
+        ],
+        "safety_notes": "Ensure the printing area is clean and free of contaminants. Allow the butter to cool and solidify before use."
+    }
+}
+
+
+        if (recipe) {
+            const recipeDetailsDiv = document.getElementById('recipe-details');
+            recipeDetailsDiv.innerHTML = `
+                <h2 style="font-family: 'Abril Fatface', serif;">${recipe.dish_name}</h2>
+                <p style="font-family: 'Abril Fatface', serif;">${recipe.description}</p>
+                <h3 style="font-family: 'Abril Fatface', serif;">Molecular Breakdown</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Total Nitrogen: ${recipe.molecular_breakdown.total_nitrogen}</li>
+                    <li>Total Carbon: ${recipe.molecular_breakdown.total_carbon}</li>
+                    <li>Total Oxygen: ${recipe.molecular_breakdown.total_oxygen}</li>
+                    <li>Total Phosphorus: ${recipe.molecular_breakdown.total_phosphorus}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Nutritional Info</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Proteins: ${recipe.nutritional_info.proteins}</li>
+                    <li>Carbohydrates: ${recipe.nutritional_info.carbohydrates}</li>
+                    <li>Fats: ${recipe.nutritional_info.fats}</li>
+                    <li>Calories: ${recipe.nutritional_info.calories}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Printer Settings</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    <li>Temperature: ${recipe.printer_settings.temperature}</li>
+                    <li>Print Speed: ${recipe.printer_settings.print_speed}</li>
+                    <li>Layer Thickness: ${recipe.printer_settings.layer_thickness}</li>
+                </ul>
+                <h3 style="font-family: 'Abril Fatface', serif;">Usage Instructions</h3>
+                <ul style="font-family: 'Abril Fatface', serif;">
+                    ${recipe.usage_instructions.loading_steps.map(step => `<li>${step}</li>`).join('')}
+                </ul>
+                <p style="font-family: 'Abril Fatface', serif;">${recipe.usage_instructions.safety_notes}</p>
+            `;
+        }
+    </script>
 </body>
 </html>

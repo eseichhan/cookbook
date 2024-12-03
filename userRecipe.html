@@ -28,6 +28,7 @@
     </div>
     <script>
         // Retrieve the recipe from local storage
+        console.log(localStorage.getItem('userRecipe'));
         const recipe = JSON.parse(localStorage.getItem('userRecipe'));
 
         // Display the recipe details
